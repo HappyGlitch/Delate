@@ -4,15 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4640b380-261f-45cb-b838-6aec4559fffc" name="Changes" comment="playback test">
-      <changelist_data name="B.D." email="" />
-      <change afterPath="$PROJECT_DIR$/src/io/github/jeremy_alvin_jr/delate/output/AudioOutput.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/io/github/jeremy_alvin_jr/delate/output/PhysicalOutput.java" afterDir="false" />
+    <list default="true" id="4640b380-261f-45cb-b838-6aec4559fffc" name="Changes" comment="code cleanup">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/Demo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/output/FileOutput.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DelateSynthJava.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DelateSynthJava.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/io/github/jeremy_alvin_jr/delate/Demo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/github/jeremy_alvin_jr/delate/Demo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/io/github/jeremy_alvin_jr/delate/playback/AudioStreamer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/io/github/jeremy_alvin_jr/delate/synth/SynthData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/io/github/jeremy_alvin_jr/delate/Demo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/io/github/jeremy_alvin_jr/delate/output/AudioOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/output/AudioOutput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/io/github/jeremy_alvin_jr/delate/output/PhysicalOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/output/PhysicalOutput.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +34,8 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="Jeremy &lt;gltchr@outlook.com&gt;" />
+        <option value="Jeremy" />
         <option value="B.D." />
       </list>
     </option>
@@ -37,6 +43,13 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="usePluginRegistry" value="true" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectId" id="2M6fSGy1nad7WuHUZfowUvdjl0L" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -55,10 +68,11 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
+    "jdk.selected.JAVA_MODULE": "18",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
+    "settings.editor.selected.configurable": "MavenSettings"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -66,14 +80,43 @@
       <recent name="io.github.jeremy_alvin_jr.delate" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="Demo" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="io.github.jeremy_alvin_jr.delate.Demo" />
-      <module name="DelateSynthJava" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+  <component name="RunManager" selected="JAR Application.delate-api-1.0-SNAPSHOT.jar">
+    <configuration name="delate-api-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/target/delate-api-1.0-SNAPSHOT.jar" />
+      <method v="2" />
     </configuration>
+    <configuration name="delate-api" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list />
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JAR Application.delate-api-1.0-SNAPSHOT.jar" />
+      <item itemvalue="Maven.delate-api" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JAR Application.delate-api-1.0-SNAPSHOT.jar" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -91,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677188660163</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="code cleanup">
+      <created>1677370027650</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1677370027650</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -107,6 +157,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="playback test" />
-    <option name="LAST_COMMIT_MESSAGE" value="playback test" />
+    <MESSAGE value="code cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="code cleanup" />
   </component>
 </project>

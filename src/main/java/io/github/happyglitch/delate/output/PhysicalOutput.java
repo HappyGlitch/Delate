@@ -1,6 +1,7 @@
-package io.github.jeremy_alvin_jr.delate.output;
+package io.github.happyglitch.delate.output;
 
 import javax.sound.sampled.*;
+import java.util.HashSet;
 
 public class PhysicalOutput implements AudioOutput {
 
@@ -34,12 +35,23 @@ public class PhysicalOutput implements AudioOutput {
         return bufferSize;
     }
 
+    @Override
+    public boolean isRealtime() {
+        return true;
+    }
+
+    @Override
+    public void close() {
+        stream.close();
+    }
+
     public static class Device {
         private Mixer mixer;
         private Mixer.Info info;
         private boolean supportsIn;
         private boolean supportsOut;
         private boolean isDefault;
+        private Formatter formatter;
 
         private Device(Mixer.Info port) {
             info = port;
@@ -47,10 +59,15 @@ public class PhysicalOutput implements AudioOutput {
             supportsIn = mixer.getTargetLineInfo().length > 0;
             supportsOut = mixer.getSourceLineInfo().length > 0;
             isDefault = mixer.equals(AudioSystem.getMixer(null));
+            formatter = new Formatter(this);
         }
 
         public Mixer.Info getInfo() {
             return info;
+        }
+
+        public Formatter getFormatter() {
+            return formatter;
         }
 
         public boolean supportsInput() {
@@ -76,6 +93,50 @@ public class PhysicalOutput implements AudioOutput {
             else
                 result += " | EMPTY";
             return result;
+        }
+    }
+
+    public static class Formatter {
+        private Device device;
+        private HashSet<Integer> channels = new HashSet<>();
+        private HashSet<Integer> bitDepth = new HashSet<>();
+        private HashSet<Integer> sampleRate = new HashSet<>();
+        private boolean floatSupported = false;
+        private Formatter(Device d) {
+            this.device = d;
+            scan();
+        }
+
+        private void scan() {
+            Line.Info[] info = device.mixer.getSourceLineInfo();
+            for(int i = 0; i < info.length; i++) {
+                if(!(info[i] instanceof DataLine.Info))
+                    continue;
+                DataLine.Info data = (DataLine.Info)info[i];
+                for(AudioFormat f: data.getFormats()) {
+                    if(f.getEncoding() == AudioFormat.Encoding.PCM_FLOAT)
+                        floatSupported = true;
+                    channels.add(f.getChannels());
+                    bitDepth.add(f.getSampleSizeInBits());
+                    sampleRate.add((int)f.getSampleRate());
+                }
+            }
+        }
+
+        public int[] supportedChannelNumber() {
+            return channels.stream().mapToInt(i -> i).toArray();
+        }
+
+        public int[] supportedBitDepth() {
+            return bitDepth.stream().mapToInt(i -> i).toArray();
+        }
+
+        public int[] supportedSampleRate() {
+            return sampleRate.stream().mapToInt(i -> i).toArray();
+        }
+
+        public boolean isFloatSupported() {
+            return floatSupported;
         }
     }
 
