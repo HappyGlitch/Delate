@@ -19,8 +19,8 @@
     <distributionManagement>
         <repository>
             <id>github</id>
-            <name>Github Happy Glitch Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/HappyGlitch/delate</url>
+            <name>Github happyglitch Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/happyglitch/delate</url>
         </repository>
     </distributionManagement>
 

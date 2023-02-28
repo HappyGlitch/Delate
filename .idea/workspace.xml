@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4640b380-261f-45cb-b838-6aec4559fffc" name="Changes" comment="migration to maven">
+    <list default="true" id="4640b380-261f-45cb-b838-6aec4559fffc" name="Changes" comment="add distributionManagement">
+      <changelist_data name="HappyGlitch" email="88254442+happyglitch@users.noreply.github.com" />
+      <change afterPath="$PROJECT_DIR$/.m2/settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
@@ -24,6 +26,7 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="HappyGlitch &lt;88254442+happyglitch@users.noreply.github.com&gt;" />
         <option value="Jeremy &lt;gltchr@outlook.com&gt;" />
         <option value="Jeremy" />
         <option value="B.D." />
@@ -144,7 +147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677485834505</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add distributionManagement">
+      <created>1677614495941</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1677614495941</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -162,6 +172,7 @@
     <MESSAGE value="playback test" />
     <MESSAGE value="code cleanup" />
     <MESSAGE value="migration to maven" />
-    <option name="LAST_COMMIT_MESSAGE" value="migration to maven" />
+    <MESSAGE value="add distributionManagement" />
+    <option name="LAST_COMMIT_MESSAGE" value="add distributionManagement" />
   </component>
 </project>
