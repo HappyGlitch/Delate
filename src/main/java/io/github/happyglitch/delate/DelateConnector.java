@@ -1,7 +1,9 @@
 package io.github.happyglitch.delate;
 
+import io.github.happyglitch.delate.audio.AudioDepthConverter;
 import io.github.happyglitch.delate.audio.input.AudioInput;
 import io.github.happyglitch.delate.audio.output.AudioOutput;
+import io.github.happyglitch.delate.instrument.InstrumentEvent;
 import io.github.happyglitch.delate.instrument.input.InstrumentInput;
 import io.github.happyglitch.delate.instrument.output.InstrumentOutput;
 
@@ -44,18 +46,34 @@ public class DelateConnector {
         return audioOutputs.get(0).getBufferSizeInBytes();
     }
 
+    public int getBitDepth() {
+        if(audioOutputs.isEmpty())
+            return -1;
+        return audioOutputs.get(0).getFormat().getSampleSizeInBits();
+    }
+
     private boolean running = false;
     /**
      * Starts transfer and blocks the thread until transfer ends.
      */
     public synchronized void start() {
         running = true;
-
+        while(running) {
+            InstrumentEvent[] events = instrumentInput.readInputUntil(getBufferSize());
+            float[] frames = audioInput.readFrames(getBufferSize(), events);
+            byte[] buffer = AudioDepthConverter.convertFloatTo(frames, getBitDepth());
+            for(AudioOutput audio: audioOutputs) {
+                audio.stream(buffer);
+            }
+            for(InstrumentOutput instrument: instrumentOutputs) {
+                instrument.stream(events);
+            }
+        }
     }
 
     /**
      * Makes the transfer stop at the start of the next buffer
-     * (buffer size can be checked using {@link #getBufferSize()} method).
+     * (buffer size can be checked using the {@link #getBufferSize()} method).
      */
     public void stop() {
         running = false;

@@ -4,18 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4640b380-261f-45cb-b838-6aec4559fffc" name="Changes" comment="fix">
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/DelateConnector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/input/AudioInput.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/instrument/InstrumentEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/instrument/input/InstrumentInput.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/instrument/output/InstrumentOutput.java" afterDir="false" />
+    <list default="true" id="4640b380-261f-45cb-b838-6aec4559fffc" name="Changes" comment="architecture rewrite">
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/AudioDepthConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/Demo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/Demo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/output/AudioOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/output/AudioOutput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/output/FileOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/output/FileOutput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/output/PhysicalOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/output/PhysicalOutput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/DelateConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/DelateConnector.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +17,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -177,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677619630550</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="architecture rewrite">
+      <created>1677873311363</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1677873311363</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -197,6 +196,7 @@
     <MESSAGE value="migration to maven" />
     <MESSAGE value="add distributionManagement" />
     <MESSAGE value="fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix" />
+    <MESSAGE value="architecture rewrite" />
+    <option name="LAST_COMMIT_MESSAGE" value="architecture rewrite" />
   </component>
 </project>
