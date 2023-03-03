@@ -1,8 +1,8 @@
 package io.github.happyglitch.delate;
 
-import io.github.happyglitch.delate.output.AudioOutput;
-import io.github.happyglitch.delate.output.PhysicalOutput;
-import io.github.happyglitch.delate.output.FileOutput;
+import io.github.happyglitch.delate.audio.output.AudioOutput;
+import io.github.happyglitch.delate.audio.output.PhysicalOutput;
+import io.github.happyglitch.delate.audio.output.FileOutput;
 
 import javax.sound.sampled.AudioFormat;
 import java.nio.ByteBuffer;

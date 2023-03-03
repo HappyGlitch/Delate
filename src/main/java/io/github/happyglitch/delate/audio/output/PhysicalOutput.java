@@ -1,4 +1,6 @@
-package io.github.happyglitch.delate.output;
+package io.github.happyglitch.delate.audio.output;
+
+import io.github.happyglitch.delate.audio.output.AudioOutput;
 
 import javax.sound.sampled.*;
 import java.util.HashSet;
