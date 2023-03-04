@@ -26,6 +26,20 @@ public class InstrumentEvent implements Comparable<InstrumentEvent> {
                 queue.pollFirst();
             return events;
         }
+
+        /**
+         * Converts all events in an array from ticks to frames and then returns the array
+         * @param events the array to convert
+         * @param resolution resolution in milliseconds per tick
+         * @param frameRate frame rate in frames per second
+         * @return the array
+         */
+        public static InstrumentEvent[] convertEventsToFrameTime(InstrumentEvent[] events, double resolution, int frameRate) {
+            for(int i = 0; i < events.length; i++) {
+                events[i].convertTimeFromTicksToFrames(resolution, frameRate);
+            }
+            return events;
+        }
     }
 
     public static enum Type {
@@ -60,6 +74,10 @@ public class InstrumentEvent implements Comparable<InstrumentEvent> {
 
     public long getTime() {
         return time;
+    }
+
+    private void convertTimeFromTicksToFrames(double resolution, int frameRate) {
+        time = (long)(time * resolution * frameRate / 1000.0);
     }
 
     public InstrumentEvent(long tick, Type type, int id, int value1, int value2) {

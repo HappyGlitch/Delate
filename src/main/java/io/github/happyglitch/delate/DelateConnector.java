@@ -51,7 +51,7 @@ public class DelateConnector {
         running = true;
         while(running) {
             InstrumentEvent[] events = instrumentInput.readInput(getBufferSize(), (int)getFormat().getSampleRate());
-            float[] frames = audioInput.readFrames(getBufferSize(), events);
+            float[] frames = audioInput.readFrames(getBufferSize(), (int)getFormat().getSampleRate(), events);
             byte[] buffer = AudioDepthConverter.convertFloatTo(frames, getFormat().getSampleSizeInBits());
             for(AudioOutput audio: audioOutputs) {
                 audio.stream(buffer);
