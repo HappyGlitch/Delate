@@ -7,6 +7,7 @@ import io.github.happyglitch.delate.instrument.InstrumentEvent;
 import io.github.happyglitch.delate.instrument.input.InstrumentInput;
 import io.github.happyglitch.delate.instrument.output.InstrumentOutput;
 
+import javax.sound.sampled.AudioFormat;
 import java.util.ArrayList;
 
 public class DelateConnector {
@@ -15,28 +16,20 @@ public class DelateConnector {
     private InstrumentInput instrumentInput;
     private ArrayList<InstrumentOutput> instrumentOutputs = new ArrayList<>();
 
-    private boolean realtime = false;
-
     public DelateConnector(AudioInput audio, InstrumentInput instrument) {
         this.audioInput = audio;
         this.instrumentInput = instrument;
-        if(audio.isRealtime() || instrument.isRealtime())
-            realtime = true;
     }
 
     public synchronized DelateConnector registerAudio(AudioOutput output) {
-        if(!audioOutputs.isEmpty() && audioOutputs.get(0).getBufferSizeInBytes() != output.getBufferSizeInBytes())
-            throw new IllegalArgumentException("Audio output buffer size doesn't match the previous outputs!");
+        if(!audioOutputs.isEmpty() && !getFormat().equals(output.getFormat()))
+            throw new IllegalArgumentException("Audio outputs need to have the same format.");
         audioOutputs.add(output);
-        if(output.isRealtime())
-            realtime = true;
         return this;
     }
 
     public synchronized DelateConnector registerInstrument(InstrumentOutput output) {
         instrumentOutputs.add(output);
-        if(output.isRealtime())
-            realtime = true;
         return this;
     }
 
@@ -46,10 +39,8 @@ public class DelateConnector {
         return audioOutputs.get(0).getBufferSizeInBytes();
     }
 
-    public int getBitDepth() {
-        if(audioOutputs.isEmpty())
-            return -1;
-        return audioOutputs.get(0).getFormat().getSampleSizeInBits();
+    public AudioFormat getFormat() {
+        return audioOutputs.get(0).getFormat();
     }
 
     private boolean running = false;
@@ -59,9 +50,9 @@ public class DelateConnector {
     public synchronized void start() {
         running = true;
         while(running) {
-            InstrumentEvent[] events = instrumentInput.readInputUntil(getBufferSize());
+            InstrumentEvent[] events = instrumentInput.readInput(getBufferSize(), (int)getFormat().getSampleRate());
             float[] frames = audioInput.readFrames(getBufferSize(), events);
-            byte[] buffer = AudioDepthConverter.convertFloatTo(frames, getBitDepth());
+            byte[] buffer = AudioDepthConverter.convertFloatTo(frames, getFormat().getSampleSizeInBits());
             for(AudioOutput audio: audioOutputs) {
                 audio.stream(buffer);
             }

@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4640b380-261f-45cb-b838-6aec4559fffc" name="Changes" comment="architecture rewrite">
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/AudioDepthConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/DelateConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/DelateConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/instrument/InstrumentEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/instrument/InstrumentEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/instrument/input/InstrumentInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/instrument/input/InstrumentInput.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
