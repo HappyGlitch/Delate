@@ -32,11 +32,12 @@ public class InstrumentEvent implements Comparable<InstrumentEvent> {
          * @param events the array to convert
          * @param resolution resolution in milliseconds per tick
          * @param frameRate frame rate in frames per second
+         * @param offsetInFrames positive values delay the events, negative values move the events back in time
          * @return the array
          */
-        public static InstrumentEvent[] convertEventsToFrameTime(InstrumentEvent[] events, double resolution, int frameRate) {
+        public static InstrumentEvent[] convertEventsToFrameTime(InstrumentEvent[] events, double resolution, int frameRate, long offsetInFrames) {
             for(int i = 0; i < events.length; i++) {
-                events[i].convertTimeFromTicksToFrames(resolution, frameRate);
+                events[i].convertTimeFromTicksToFrames(resolution, frameRate, offsetInFrames);
             }
             return events;
         }
@@ -76,8 +77,8 @@ public class InstrumentEvent implements Comparable<InstrumentEvent> {
         return time;
     }
 
-    private void convertTimeFromTicksToFrames(double resolution, int frameRate) {
-        time = (long)(time * resolution * frameRate / 1000.0);
+    private void convertTimeFromTicksToFrames(double resolution, int frameRate, long offset) {
+        time = (long)(time * resolution * frameRate / 1000.0) + offset;
     }
 
     public InstrumentEvent(long tick, Type type, int id, int value1, int value2) {

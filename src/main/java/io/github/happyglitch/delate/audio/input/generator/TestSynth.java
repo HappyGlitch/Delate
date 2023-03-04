@@ -9,9 +9,9 @@ public class TestSynth implements AudioInput {
     int time = 0;
     @Override
     public float[] readFrames(int framesLength, int sampleRate, InstrumentEvent[] events) {
-        updateFrequency(events);
         float[] result = new float[framesLength];
         for(int i = 0; i < framesLength; i++) {
+            updateFrequency(events, i);
             time++;
             time %= frequency;
             result[i] = (float)Math.sin(Math.PI * 2 * i * frequency / sampleRate);
@@ -19,8 +19,10 @@ public class TestSynth implements AudioInput {
         return result;
     }
 
-    private void updateFrequency(InstrumentEvent[] events) {
+    private void updateFrequency(InstrumentEvent[] events, int frame) {
         for(InstrumentEvent event: events) {
+            if(frame != event.getTime())
+                continue;
             if(event.getType() == InstrumentEvent.Type.NOTE_ON)
                 frequency = MIDIUtility.convertNoteToFrequency(event.getValue1());
             if(event.getType() == InstrumentEvent.Type.NOTE_OFF)

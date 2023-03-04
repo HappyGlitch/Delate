@@ -38,7 +38,7 @@ public class FileInstrumentInput implements InstrumentInput {
         time += lengthInFrames;
         long timeInTicks = (long)(time / (resolution / 1000) / frameRate);
         InstrumentEvent[] events = queue.pollEventsUntil(timeInTicks);
-        events = InstrumentEvent.Queue.convertEventsToFrameTime(events, resolution, frameRate);
+        events = InstrumentEvent.Queue.convertEventsToFrameTime(events, resolution, frameRate, lengthInFrames-time);
         if(queue.isEmpty())
             System.out.println("Playback ended...");
         return events;
