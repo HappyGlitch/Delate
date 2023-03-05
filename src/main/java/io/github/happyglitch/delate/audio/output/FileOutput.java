@@ -50,8 +50,8 @@ public class FileOutput implements AudioOutput {
     }
 
     @Override
-    public boolean isRealtime() {
-        return false;
+    public int getTimeDelayStatus() {
+        return -1;
     }
 
     @Override

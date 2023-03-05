@@ -58,11 +58,18 @@ public class DelateConnector {
      */
     public synchronized void start() {
         running = true;
+        int allowedDelay = getBufferSizeInBytes() / 3;
+        int frameOffset = 1;
         while(running) {
+            frameOffset++;
+            frameOffset %= WRITES_PER_BUFFER * 2;
+
             InstrumentEvent[] events = instrumentInput.readInput(getWriteSizeInFrames(), (int)getFormat().getSampleRate());
             float[] frames = audioInput.readFrames(getWriteSizeInFrames(), (int)getFormat().getSampleRate(), events);
             byte[] buffer = AudioDepthConverter.convertFloatTo(frames, getFormat().getSampleSizeInBits());
             for(AudioOutput audio: audioOutputs) {
+                if(frameOffset == 0 && audio.getTimeDelayStatus() > allowedDelay)
+                    System.out.println("DelateConnector is low on time. Buffer size may be too small.");
                 audio.stream(buffer);
             }
             for(InstrumentOutput instrument: instrumentOutputs) {

@@ -9,7 +9,6 @@ public class TestSynth implements AudioInput {
     int time = 0;
     @Override
     public float[] readFrames(int framesLength, int sampleRate, InstrumentEvent[] events) {
-        System.out.println(framesLength);
         float[] result = new float[framesLength];
         for(int i = 0; i < framesLength; i++) {
             updateFrequency(events, i);
@@ -21,7 +20,6 @@ public class TestSynth implements AudioInput {
 
     private void updateFrequency(InstrumentEvent[] events, int frame) {
         for(InstrumentEvent event: events) {
-            System.out.println(event.getTime());
             if(frame != event.getTime())
                 continue;
             if(event.getType() == InstrumentEvent.Type.NOTE_ON)

@@ -10,9 +10,9 @@ public class PhysicalOutput implements AudioOutput {
     private AudioFormat format;
     private final int bufferSize;
     private SourceDataLine stream;
-    public PhysicalOutput(AudioFormat format, Device output) {
+    public PhysicalOutput(AudioFormat format, Device output, int bufferSize) {
         this.format = format;
-        bufferSize = (int)(format.getFrameRate() * format.getFrameSize() / 5);
+        this.bufferSize = bufferSize;
         try {
             stream = AudioSystem.getSourceDataLine(format, output.getInfo());
             stream.open(format, bufferSize);
@@ -20,6 +20,11 @@ public class PhysicalOutput implements AudioOutput {
         } catch(LineUnavailableException e) {
             e.printStackTrace();
         }
+    }
+
+    public PhysicalOutput(AudioFormat format, Device output) {
+        this(format, output,
+                (int)(format.getFrameRate() * format.getFrameSize() / 10));
     }
 
     @Override
@@ -38,8 +43,8 @@ public class PhysicalOutput implements AudioOutput {
     }
 
     @Override
-    public boolean isRealtime() {
-        return true;
+    public int getTimeDelayStatus() {
+        return stream.available();
     }
 
     @Override

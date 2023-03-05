@@ -6,6 +6,6 @@ public interface AudioOutput {
     public void stream(byte[] buffer);
     public AudioFormat getFormat();
     public int getBufferSizeInBytes();
-    public boolean isRealtime();
+    public int getTimeDelayStatus();
     public void close();
 }
