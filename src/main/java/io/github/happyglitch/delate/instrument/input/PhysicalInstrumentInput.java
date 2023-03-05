@@ -23,7 +23,7 @@ public class PhysicalInstrumentInput implements InstrumentInput, Receiver {
     @Override
     public synchronized InstrumentEvent[] readInput(int lengthInFrames, int frameRate) {
         InstrumentEvent[] events = queue.pollEventsUntil(Long.MAX_VALUE);
-        InstrumentEvent.Queue.convertEventsToFrameTime(events, 0.001, frameRate, 0);
+        InstrumentEvent.Queue.convertEventsToFrameTime(events, 0.0009, frameRate, 0);
         lastTime = device.getMicrosecondPosition();
         return events;
     }

@@ -4,14 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4640b380-261f-45cb-b838-6aec4559fffc" name="Changes" comment="MIDI input">
+    <list default="true" id="4640b380-261f-45cb-b838-6aec4559fffc" name="Changes" comment="Connector delay warning">
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/input/synth/Instrument.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/input/synth/SynthFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/input/synth/SynthModule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/input/synth/generator/Oscillator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/input/synth/generator/SynthModuleConstant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/DelateConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/DelateConnector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/Demo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/Demo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/input/generator/TestSynth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/input/generator/TestSynth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/output/AudioOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/output/AudioOutput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/output/FileOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/output/FileOutput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/output/PhysicalOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/output/PhysicalOutput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/input/generator/TestSynth.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/instrument/input/PhysicalInstrumentInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/instrument/input/PhysicalInstrumentInput.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -224,7 +225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678013857682</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Connector delay warning">
+      <created>1678015564763</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1678015564763</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -249,7 +257,8 @@
     <MESSAGE value="Test connector" />
     <MESSAGE value="Time micro adjustments" />
     <MESSAGE value="MIDI input" />
-    <option name="LAST_COMMIT_MESSAGE" value="MIDI input" />
+    <MESSAGE value="Connector delay warning" />
+    <option name="LAST_COMMIT_MESSAGE" value="Connector delay warning" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/DelateSynthJava$Demo.ic" NAME="Demo Coverage Results" MODIFIED="1678013510250" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
