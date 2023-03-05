@@ -33,10 +33,18 @@ public class DelateConnector {
         return this;
     }
 
-    public int getBufferSize() {
+    public int getBufferSizeInBytes() {
         if(audioOutputs.isEmpty())
             return -1;
         return audioOutputs.get(0).getBufferSizeInBytes();
+    }
+
+    public int getBufferSizeInFrames() {
+        return getBufferSizeInBytes() / getFormat().getFrameSize();
+    }
+
+    public int getWriteSizeInFrames() {
+        return getBufferSizeInFrames() / WRITES_PER_BUFFER;
     }
 
     public AudioFormat getFormat() {
@@ -44,14 +52,15 @@ public class DelateConnector {
     }
 
     private boolean running = false;
+    private final int WRITES_PER_BUFFER = 2;
     /**
      * Starts transfer and blocks the thread until transfer ends.
      */
     public synchronized void start() {
         running = true;
         while(running) {
-            InstrumentEvent[] events = instrumentInput.readInput(getBufferSize(), (int)getFormat().getSampleRate());
-            float[] frames = audioInput.readFrames(getBufferSize(), (int)getFormat().getSampleRate(), events);
+            InstrumentEvent[] events = instrumentInput.readInput(getWriteSizeInFrames(), (int)getFormat().getSampleRate());
+            float[] frames = audioInput.readFrames(getWriteSizeInFrames(), (int)getFormat().getSampleRate(), events);
             byte[] buffer = AudioDepthConverter.convertFloatTo(frames, getFormat().getSampleSizeInBits());
             for(AudioOutput audio: audioOutputs) {
                 audio.stream(buffer);
@@ -64,7 +73,7 @@ public class DelateConnector {
 
     /**
      * Makes the transfer stop at the start of the next buffer
-     * (buffer size can be checked using the {@link #getBufferSize()} method).
+     * (buffer size can be checked using the {@link #getBufferSizeInBytes()} method).
      */
     public void stop() {
         running = false;

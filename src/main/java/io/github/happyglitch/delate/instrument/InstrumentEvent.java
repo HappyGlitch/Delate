@@ -142,6 +142,10 @@ public class InstrumentEvent implements Comparable<InstrumentEvent> {
 
     @Override
     public int compareTo(InstrumentEvent o) {
-        return (int)(time - o.time);
+        if(time > o.time)
+            return 1;
+        if(time < o.time)
+            return -1;
+        return 0;
     }
 }

@@ -12,10 +12,10 @@ public class PhysicalOutput implements AudioOutput {
     private SourceDataLine stream;
     public PhysicalOutput(AudioFormat format, Device output) {
         this.format = format;
-        bufferSize = (int)(format.getFrameRate() * format.getFrameSize() / 10);
+        bufferSize = (int)(format.getFrameRate() * format.getFrameSize() / 5);
         try {
             stream = AudioSystem.getSourceDataLine(format, output.getInfo());
-            stream.open();
+            stream.open(format, bufferSize);
             stream.start();
         } catch(LineUnavailableException e) {
             e.printStackTrace();
