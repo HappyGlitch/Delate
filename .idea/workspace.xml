@@ -4,15 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4640b380-261f-45cb-b838-6aec4559fffc" name="Changes" comment="Connector delay warning">
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/input/synth/Instrument.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/input/synth/SynthFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/input/synth/SynthModule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/input/synth/generator/Oscillator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/input/synth/generator/SynthModuleConstant.java" afterDir="false" />
+    <list default="true" id="4640b380-261f-45cb-b838-6aec4559fffc" name="Changes" comment="Synthesizer added">
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/input/synth/SynthCreator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/input/synth/SynthOutput.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/input/synth/SynthProperty.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/input/synth/filter/Delay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/input/synth/filter/Filter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/input/synth/filter/IIRFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/input/synth/generator/Noise.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/Demo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/Demo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/input/generator/TestSynth.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/input/synth/Instrument.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/input/synth/Instrument.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/input/synth/SynthModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/input/synth/SynthModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/input/synth/generator/Oscillator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/input/synth/generator/Oscillator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/input/synth/generator/SynthModuleConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/audio/input/synth/generator/SynthModuleConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/instrument/InstrumentEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/instrument/InstrumentEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/instrument/input/PhysicalInstrumentInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/happyglitch/delate/instrument/input/PhysicalInstrumentInput.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -232,7 +238,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678015564763</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Synthesizer added">
+      <created>1678042554032</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1678042554032</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -258,7 +271,8 @@
     <MESSAGE value="Time micro adjustments" />
     <MESSAGE value="MIDI input" />
     <MESSAGE value="Connector delay warning" />
-    <option name="LAST_COMMIT_MESSAGE" value="Connector delay warning" />
+    <MESSAGE value="Synthesizer added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Synthesizer added" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/DelateSynthJava$Demo.ic" NAME="Demo Coverage Results" MODIFIED="1678013510250" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

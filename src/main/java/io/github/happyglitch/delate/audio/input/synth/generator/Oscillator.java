@@ -3,15 +3,11 @@ package io.github.happyglitch.delate.audio.input.synth.generator;
 import io.github.happyglitch.delate.audio.input.synth.SynthModule;
 
 public abstract class Oscillator extends SynthModule {
-    private SynthModule frequency = SynthModule.constant(440);
-    private SynthModule phase = SynthModule.constant(0);
-    private SynthModule amplitude = SynthModule.constant(1);;
-    private SynthModule base = SynthModule.constant(0);
+    private SynthModule frequency;
+    private SynthModule phase;
+    private SynthModule amplitude;
+    private SynthModule base;
 
-    @Override
-    public final SynthModule[] getChildren() {
-        return new SynthModule[] {frequency, phase, amplitude, base};
-    }
 
     public void setFrequency(SynthModule frequency) {
         this.frequency = frequency;
@@ -29,7 +25,7 @@ public abstract class Oscillator extends SynthModule {
     private float time;
 
     @Override
-    public final float generateNextFrame() {
+    public final float generate() {
         float frequencyInFrames = frequency.generateNextFrame() / getInfo().getFrameRate();
         time += frequencyInFrames;
         if(time >= 1)
@@ -41,14 +37,32 @@ public abstract class Oscillator extends SynthModule {
 
     protected abstract float oscillate(float phase);
 
-    private static class Sine extends Oscillator {
+    public Oscillator(Info info) {
+        super(info);
+        frequency = info.getCreator().constant(440);
+        amplitude = info.getCreator().constant(1);
+        phase = info.getCreator().constant(0);
+        base = info.getCreator().constant(0);
+    }
+
+    public static class Sine extends Oscillator {
+        public Sine(Info info) {
+            super(info);
+        }
+
         @Override
         protected float oscillate(float phase) {
             return (float)Math.sin(Math.PI * 2 * phase);
         }
     }
-    private static class Pulse extends Oscillator {
+    public static class Pulse extends Oscillator {
         public float width;
+
+        public Pulse(Info info, float width) {
+            super(info);
+            this.width = width;
+        }
+
         @Override
         protected float oscillate(float phase) {
             if(phase < width)
@@ -56,7 +70,11 @@ public abstract class Oscillator extends SynthModule {
             return -1;
         }
     }
-    private static class Saw extends Oscillator {
+    public static class Saw extends Oscillator {
+        public Saw(Info info) {
+            super(info);
+        }
+
         @Override
         protected float oscillate(float phase) {
             if(phase < 0.5)
@@ -64,7 +82,11 @@ public abstract class Oscillator extends SynthModule {
             return phase - 0.5f;
         }
     }
-    private static class Triangle extends Oscillator {
+    public static class Triangle extends Oscillator {
+        public Triangle(Info info) {
+            super(info);
+        }
+
         @Override
         protected float oscillate(float phase) {
             if(phase < 0.25)
@@ -73,23 +95,5 @@ public abstract class Oscillator extends SynthModule {
                 return 2 - 4 * phase;
             return 4 * phase - 4;
         }
-    }
-
-    public static Oscillator sine() {
-        return new Sine();
-    }
-    public static Oscillator triangle() {
-        return new Triangle();
-    }
-    public static Oscillator sawtooth() {
-        return new Saw();
-    }
-    public static Oscillator pulse(float width) {
-        Pulse p = new Pulse();
-        p.width = width;
-        return p;
-    }
-    public static Oscillator square() {
-        return pulse(0.5f);
     }
 }

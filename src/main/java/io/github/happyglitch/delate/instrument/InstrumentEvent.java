@@ -47,9 +47,12 @@ public class InstrumentEvent implements Comparable<InstrumentEvent> {
         NOTE_ON,
         NOTE_OFF,
         NOTE_TOUCH,
+        PEDAL,
         SET_SYNTH_PROPERTY,
         UNKNOWN
     }
+
+    public final static int DAMPER_PEDAL = 64;
 
     private Type type;
     private int id;
@@ -108,6 +111,9 @@ public class InstrumentEvent implements Comparable<InstrumentEvent> {
     private Type getTypeFromMidiCommand(int midiCommand) {
         if(value2 == 0 && midiCommand == ShortMessage.NOTE_ON)
             return Type.NOTE_OFF;
+        if(midiCommand == ShortMessage.CONTROL_CHANGE) {
+            return Type.PEDAL;
+        }
         return switch (midiCommand) {
             case ShortMessage.NOTE_ON -> Type.NOTE_ON;
             case ShortMessage.NOTE_OFF -> Type.NOTE_OFF;
